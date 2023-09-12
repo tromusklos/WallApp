@@ -45,14 +45,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = '17'
-        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+    android {
+        kotlinOptions {
+            jvmTarget = '17'
+            freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+        }
     }
+
     buildFeatures {
         viewBinding = true
         buildConfig = true
