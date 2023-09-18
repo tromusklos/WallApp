@@ -7,12 +7,13 @@ import com.lucasmendes.core.data.repository.PopularRepository
 import com.lucasmendes.core.domain.model.PhotoDomain
 import com.lucasmendes.core.usecase.base.PagingUseCase
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 interface GetPopularUseCase{
     operator fun invoke(params: GetPopularParams): Flow<PagingData<PhotoDomain>>
     data class GetPopularParams(val pagingConfig: PagingConfig)
 }
-class GetPopularUseCaseImpl(
+class GetPopularUseCaseImpl @Inject constructor(
     private val repository: PopularRepository
 ): PagingUseCase<GetPopularUseCase.GetPopularParams, PhotoDomain>(), GetPopularUseCase {
     override fun createFlowObservable(params: GetPopularUseCase.GetPopularParams): Flow<PagingData<PhotoDomain>> {

@@ -6,8 +6,9 @@ import com.lucasmendes.core.data.repository.PopularRepository
 import com.lucasmendes.core.domain.model.PhotoDomain
 import com.lucasmendes.wallapp.framework.network.response.DataWrapperResponse
 import com.lucasmendes.wallapp.framework.paging.PopularPagingSrc
+import javax.inject.Inject
 
-class PopularRepositoryImpl(
+class PopularRepositoryImpl @Inject constructor(
     private val remoteDataSrc: PopularRemoteDataSrc<DataWrapperResponse>
 ): PopularRepository {
     override fun fetchPopular(pages: Int): PagingSource<Int, PhotoDomain> {

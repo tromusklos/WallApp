@@ -6,8 +6,9 @@ import com.lucasmendes.core.data.repository.PopularRemoteDataSrc
 import com.lucasmendes.core.domain.model.PhotoDomain
 import com.lucasmendes.wallapp.framework.network.response.DataWrapperResponse
 import com.lucasmendes.wallapp.framework.network.response.toPhotoDomain
+import javax.inject.Inject
 
-class PopularPagingSrc(
+class PopularPagingSrc @Inject constructor(
     private val dataSrc: PopularRemoteDataSrc<DataWrapperResponse>,
     private val pages: Int
 ): PagingSource<Int, PhotoDomain>() {
