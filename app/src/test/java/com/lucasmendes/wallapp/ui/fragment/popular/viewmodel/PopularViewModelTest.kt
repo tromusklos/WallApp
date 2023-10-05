@@ -41,7 +41,7 @@ class PopularViewModelTest{
     // Arrange
         whenever(popularUseCase.invoke(any())).thenReturn(flowOf(getPagingDataMock))
         //Act
-        val result = popularViewModel.popularWallpapes()
+        val result = popularViewModel.popularWallpaper()
 
         //Assert
         assertNotNull(result.first())
@@ -50,7 +50,7 @@ class PopularViewModelTest{
     fun `Should return an empty PagingData When an error occurred`() = runTest{
         whenever(popularUseCase(any())).thenThrow(RuntimeException())
 
-        popularViewModel.popularWallpapes()
+        popularViewModel.popularWallpaper()
 
     }
 
